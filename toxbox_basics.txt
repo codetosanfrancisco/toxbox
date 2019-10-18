@@ -1,0 +1,13 @@
+How OpenTox platform works?
+
+1. The session is created by your app server. Your App server create a session in the OpenTok cloud via OpenTokRest API and receives the session id from the OpenTok cloud.
+-  For now, think of session as a "room"
+
+2. A client loads the app and server create a token
+- The client gets session info such as token from app server
+
+3. The client connects and begins streaming to the session
+- The client uses the session id and token to establish a connection with the session(in OpenTok cloud)
+- The client can publish an audio-video stream to the session.
+- This is the same for the other client.
+
