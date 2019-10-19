@@ -1,4 +1,4 @@
-var SERVER_BASE_URL = "http://localhost:3000/room/new";
+var SERVER_BASE_URL = "https://paul-opentok.herokuapp.com/room/new";
 
 $("#createSession").click(function() {
   createSession();

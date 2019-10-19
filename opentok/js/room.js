@@ -1,6 +1,6 @@
 var apiKey, sessionId, token, session;
 
-var SERVER_BASE_URL = `http://localhost:3000/room`;
+var SERVER_BASE_URL = `https://paul-opentok.herokuapp.com/room`;
 axios
   .post(SERVER_BASE_URL, {
     roomId: getParameterByName("roomId")
@@ -8,10 +8,8 @@ axios
   .then(function(res) {
     console.log(res);
     apiKey = res.data.sessionData.ot.apiKey;
-    sessionId =
-      "2_MX40NjQ0MDE3Mn5-MTU3MTQxNzg4NTE4OH51TWdLYWNaVVRpeW5XTEllN3BpSi9nUlR-fg";
-    token =
-      "T1==cGFydG5lcl9pZD00NjQ0MDE3MiZzaWc9ZmZiY2Q4NGFjYWY5YzY1ZmIxNzFlNWY2OGE1ZWZjNWEzZjZhOGQxNjpzZXNzaW9uX2lkPTJfTVg0ME5qUTBNREUzTW41LU1UVTNNVFF4TnpnNE5URTRPSDUxVFdkTFlXTmFWVlJwZVc1WFRFbGxOM0JwU2k5blVsUi1mZyZjcmVhdGVfdGltZT0xNTcxNDE3ODg1Jm5vbmNlPTAuNTgxMzkwODIwMjEzNjU5NyZyb2xlPXB1Ymxpc2hlciZleHBpcmVfdGltZT0xNTcyMDIyNjg1JmNvbm5lY3Rpb25fZGF0YT1uYW1lJTNESm9obm55JmluaXRpYWxfbGF5b3V0X2NsYXNzX2xpc3Q9Zm9jdXMlMjBpbmFjdGl2ZQ==";
+    sessionId = res.data.sessionData.sessionId;
+    token = res.data.tokenData;
     initializeSession(apiKey, sessionId);
   })
   .catch(handleError);
