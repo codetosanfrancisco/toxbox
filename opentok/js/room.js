@@ -1,6 +1,6 @@
 var apiKey, sessionId, token, session;
 
-var SERVER_BASE_URL = `https://paul-opentok-server.herokuapp.com/room`;
+var SERVER_BASE_URL = `http://localhost:3000/room`;
 axios
   .post(SERVER_BASE_URL, {
     roomId: getParameterByName("roomId")
