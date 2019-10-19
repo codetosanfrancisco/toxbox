@@ -1,36 +1,23 @@
-body,
-html {
-  background-color: gray;
-  height: 100%;
-}
-
-#videos {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  margin-left: auto;
-  margin-right: auto;
+#publisher {
+  height: 100vh;
 }
 
 #subscriber {
-  /* position: absolute;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 10; */
-  left: 0;
-  top: 0;
-  width: 360px;
-  height: 240px;
-  position: absolute;
+  height: 25vh;
 }
 
-#publisher {
-  position: absolute;
-  width: 360px;
-  height: 240px;
-  bottom: 10px;
-  z-index: 100;
-  border-radius: 3px;
+#subscriber_column {
+  overflow-y: scroll;
+  height: 100vh;
+}
+
+body .px-0 {
+  padding-left: 0px;
+  padding-right: 0px;
+}
+
+body {
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
 }

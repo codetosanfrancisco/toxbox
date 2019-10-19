@@ -11,7 +11,7 @@ app.use(cors());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-app.get("/session/new", (req, res) => {
+app.get("/room/new", (req, res) => {
   return opentok.createSession({ mediaMode: "routed" }, function(err, session) {
     if (err) throw new Error("Fail to create a session.");
 
@@ -31,6 +31,12 @@ app.get("/session/new", (req, res) => {
       return res.status(200).send(response);
     });
   });
+});
+
+app.post("/room", async (req, res) => {
+  var roomId = req.body.roomId;
+  var data = await Session.findById(roomId);
+  return res.status(200).send(data);
 });
 
 app.listen(port, () => {

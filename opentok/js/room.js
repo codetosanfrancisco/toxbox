@@ -1,8 +1,10 @@
 var apiKey, sessionId, token, session;
 
-var SERVER_BASE_URL = "http://localhost:3000/session/new";
+var SERVER_BASE_URL = `https://paul-opentok-server.herokuapp.com/room`;
 axios
-  .get(SERVER_BASE_URL)
+  .post(SERVER_BASE_URL, {
+    roomId: getParameterByName("roomId")
+  })
   .then(function(res) {
     console.log(res);
     apiKey = res.data.sessionData.ot.apiKey;
@@ -19,6 +21,16 @@ function handleError(error) {
   if (error) {
     alert(error.message);
   }
+}
+
+function getParameterByName(name, url) {
+  if (!url) url = window.location.href;
+  name = name.replace(/[\[\]]/g, "\\$&");
+  var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+    results = regex.exec(url);
+  if (!results) return null;
+  if (!results[2]) return "";
+  return decodeURIComponent(results[2].replace(/\+/g, " "));
 }
 
 function initializeSession(apiKey, sessionId) {
